@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.1;netstandard1.4;</TargetFrameworks>
+    <AssemblyName>BizzebeeSharp</AssemblyName>
+    <RootNamespace>BizzebeeSharp</RootNamespace>
+    <Version>0.0.1</Version>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Description>BizzebeeSharp is a C# and .NET library that helps developers easily authenticate with and manage Bizzebee WMS.</Description>
+    <Authors>Ajay Kumar</Authors>
+    <Copyright>Prime Penguin</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/PrimePenguin/BizzebeeSharp/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/PrimePenguin/BizzebeeSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/PrimePenguin/BizzebeeSharp</RepositoryUrl>
+    <PackageTags>bizzebee,3PL,WMS</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIconUrl>https://raw.githubusercontent.com/PrimePenguin/BizzebeeSharp/master/PrimePenguin.png</PackageIconUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="microsoft.extensions.primitives" Version="1.1.0" />
+    <PackageReference Include="newtonsoft.json" Version="10.0.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+  </ItemGroup>
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^net\d'))">
+    <DefineConstants>NETFRAMEWORK</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netstandard\d'))">
+    <DefineConstants>NETSTANDARD</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(TargetFramework)', '^netcoreapp\d'))">
+    <DefineConstants>NETCORE</DefineConstants>
+  </PropertyGroup>
+</Project>
